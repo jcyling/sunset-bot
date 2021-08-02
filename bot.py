@@ -2,10 +2,16 @@ import requests
 import tweepy
 import time
 from credentials import *
+from os import environ
 
-auth = tweepy.OAuthHandler(cKey, csKey)
+AKEY = environ['AKEY']
+ASKEY = environ['ASKEY']
+ATKEY = environ['ATKEY']
+ATSKEY = environ['ATSKEY']
 
-auth.set_access_token(aKey, asKey)
+auth = tweepy.OAuthHandler(AKEY, ASKEY)
+
+auth.set_access_token(ATKEY, ATSKEY)
 
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
@@ -30,3 +36,5 @@ def search():
                     print(e.reason)
                 except StopIteration:
                     break
+
+search()
