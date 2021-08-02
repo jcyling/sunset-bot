@@ -1,7 +1,6 @@
 import requests
 import tweepy
 import time
-from credentials import *
 from os import environ
 
 AKEY = environ['AKEY']
