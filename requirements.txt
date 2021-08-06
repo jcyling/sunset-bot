@@ -1,1 +1,5 @@
 tweepy
+urllib
+boto3
+requests
+flask
