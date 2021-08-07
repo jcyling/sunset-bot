@@ -75,7 +75,7 @@ def search():
                     # image = "images/%d.jpg" % counter
 
 def define(image):
-    client = boto3.client('rekognition')
+    client = boto3.client('rekognition', region_name='us-east-2')
 
     results = client.detect_labels(
         Image={
