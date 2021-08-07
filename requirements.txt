@@ -1,5 +1,5 @@
 tweepy
-urllib
 boto3
 requests
 flask
+urllib3==1.25.8

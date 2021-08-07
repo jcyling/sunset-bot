@@ -1,7 +1,7 @@
 import tweepy
 import time
 from os import environ
-import urllib.request
+import urllib3.request
 import boto3
 import requests
 
@@ -71,7 +71,7 @@ def search():
                     return True
 
                     # Download photo
-                    # urllib.request.urlretrieve(imageurl, "images/%d.jpg" % counter)
+                    # urllib3.request.urlretrieve(imageurl, "images/%d.jpg" % counter)
                     # image = "images/%d.jpg" % counter
 
 def define(image):
