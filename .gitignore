@@ -2,3 +2,4 @@ venv/
 __pycache__/
 images/
 credentials.py
+.vscode/
