@@ -1,6 +1,5 @@
 from os import environ
 from flask import Flask, request, render_template
-import sqlite3
 import bot
 import psycopg2
 

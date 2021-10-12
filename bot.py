@@ -2,7 +2,6 @@ import tweepy
 import urllib.request
 import boto3
 import requests
-import sqlite3
 import psycopg2
 import sys
 from os import path, environ
