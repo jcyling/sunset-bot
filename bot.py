@@ -3,6 +3,7 @@ import urllib.request
 import boto3
 import requests
 import psycopg2
+import sqlite3
 import sys
 from os import path, environ
 from pathlib import Path
@@ -26,7 +27,7 @@ user = api.me()
 # db = sqlite3.connect('sunsets.db', check_same_thread=False)
 # cur = db.cursor()
 db = environ.get("DATABASE_URI")
-conn = psycopg2.connect("DATABASE_URI")
+conn = psycopg2.connect(db)
 cur = conn.cursor()
 
 # Set interval and limit
@@ -63,9 +64,8 @@ def search():
                         tweettext = tweet.text
 
                         # Update database
-                        cur.execute("UPDATE tweets SET location = ?, time = ?, text = ? WHERE image = ?", 
-                        (loc, tweettime, tweettext, tweetimage))
-
+                        cur.execute("UPDATE tweets SET location = %s, time = %s, text = %s WHERE image = %s", (loc, tweettime, tweettext, tweetimage))
+                        
                         # Insert into database
                         # cur.execute("INSERT INTO tweets (location, time, text, image) VALUES (?, ?, ?, ?)",
                         # (loc, tweettime, tweettext, tweetimage))
@@ -128,8 +128,9 @@ def start():
         hit = search()
         if hit == True:
             # Close database connection
-            db.commit()
-            db.close()
+            conn.commit()
+            cur.close()
+            conn.close()
             
             # Confirm hit
             return True
