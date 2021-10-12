@@ -1,14 +1,14 @@
 html, body {
     text-align: center;
     max-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Space Mono', monospace;
     color: black;
     background: #fff;
 }
 
 .container-fluid {
     padding: 0;
-    font-size: x-large;
+    opacity: 1;
     }
 
 .img-div {
@@ -17,11 +17,31 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 
 }
 
+.tweet-info {
+    font-size: 1rem;
+    position: absolute;
+    bottom: 8%;
+}
+
 img {
-    height: 65%;
+    /* width: 65%;
+    height: auto; */
+    max-height: 70%;
+    max-width: 70%;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: grey;
+    text-decoration: none;
 }
 
 .form-group{
@@ -34,11 +54,16 @@ img {
 
 /* To-do: Responsive Design*/
 
-
-@media only screen and (max-width: 800px) {
-
+@media only screen and (max-width: 1000px) {
+    img {
+        width: 80%;
+        height: auto;
+    }
 }
 
 @media only screen and (max-width: 600px) {
-
+    img {
+        width: 80%;
+        height: auto;
+    }
 }
