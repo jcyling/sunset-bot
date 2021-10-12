@@ -27,7 +27,7 @@ user = api.me()
 # db = sqlite3.connect('sunsets.db', check_same_thread=False)
 # cur = db.cursor()
 db = environ.get("DATABASE_URI")
-conn = psycopg2.connect(DATABASE_URI)
+conn = psycopg2.connect("DATABASE_URI")
 cur = conn.cursor()
 
 # Set interval and limit
@@ -67,6 +67,7 @@ def search():
                         cur.execute("UPDATE tweets SET location = ?, time = ?, text = ? WHERE image = ?", 
                         (loc, tweettime, tweettext, tweetimage))
 
+                        # Insert into database
                         # cur.execute("INSERT INTO tweets (location, time, text, image) VALUES (?, ?, ?, ?)",
                         # (loc, tweettime, tweettext, tweetimage))
 
