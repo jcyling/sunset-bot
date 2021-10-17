@@ -20,10 +20,11 @@ cur = conn.cursor()
 def index():
   if request.method == "POST":
       bot.start()
-      tweets = cur.execute("SELECT time, location, image, text FROM tweets ORDER BY time DESC")
+      cur.execute("SELECT time, location, image, text FROM tweets ORDER BY time DESC;")
+      tweets = cur.fetchall()
       return render_template("index.html", tweets=tweets)
   else:
       # Perform database selection
-      tweets = cur.execute("SELECT time, location, image, text FROM tweets ORDER BY time DESC")
-
+      cur.execute("SELECT time, location, image, text FROM tweets ORDER BY time DESC;")
+      tweets = cur.fetchall()
       return render_template("index.html", tweets=tweets)
