@@ -13,6 +13,8 @@ try:
     ASKEY = environ.get('ASKEY')
     ATKEY = environ.get('ATKEY')
     ATSKEY = environ.get('ATSKEY')
+    AWSID = environ.get('AWSID')
+    AWSSID = environ.get('AWSSID')
 except KeyError:
     print("Keys not accessible.")
     sys.exit(1)
@@ -81,7 +83,10 @@ def search():
 
 # Define image with AWS
 def define(image):
-    client = boto3.client('rekognition', region_name='us-east-2')
+    client = boto3.client('rekognition',
+                            aws_access_key_id=AWSID,
+                            aws_secret_access_key=AWSSID,
+                            region_name='us-east-2')
     results = client.detect_labels(
         Image={
             'Bytes': image
