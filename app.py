@@ -12,7 +12,7 @@ if __name__ == "__main__":
 # db = sqlite3.connect('sunsets.db', check_same_thread=False)
 # cur = db.cursor()
 
-db = environ.get("DATABASE_URI")
+db = environ.get("DATABASE_URL")
 conn = psycopg2.connect(db)
 cur = conn.cursor()
 
