@@ -143,3 +143,14 @@ def start():
 if __name__ == "__main__":
     start()
     images = loadimage()
+
+# 'Load' images in the order of their time tweeted
+
+# Implement JS timer
+    # API call for tweet times from bot
+    # Record last tweeted time
+    # Pass tweet time to app?
+    # Allow button function when timer has passed 30 mins?
+
+# Horizontal layout design
+    # Sort by colour
