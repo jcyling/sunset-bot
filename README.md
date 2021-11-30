@@ -21,7 +21,6 @@ The python script uses Twitter API to obtain relevant images. The image is saved
 `downloadimage(imageurl)`
 `start()` initiates the search and continues the search until there is a valid hit.
 
-
 #### Libraries Used
 Tweepy, flask, boto3, urllib, sqlite3, pathlib, requests, jQuery
 

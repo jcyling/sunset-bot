@@ -3,7 +3,6 @@ import urllib.request
 import boto3
 import requests
 import psycopg2
-import sqlite3
 import sys
 from os import path, environ
 from pathlib import Path
@@ -15,8 +14,9 @@ try:
     ATSKEY = environ.get('ATSKEY')
     AWSID = environ.get('AWSID')
     AWSSID = environ.get('AWSSID')
+    db = environ.get("DATABASE_URL")
 except KeyError:
-    print("Keys not accessible.")
+    print("Config not accessible.")
     sys.exit(1)
     
 # Authentication
@@ -24,13 +24,6 @@ auth = tweepy.OAuthHandler(AKEY, ASKEY)
 auth.set_access_token(ATKEY, ATSKEY)
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 user = api.me()
-
-# Database connection
-# db = sqlite3.connect('sunsets.db', check_same_thread=False)
-# cur = db.cursor()
-db = environ.get("DATABASE_URL")
-conn = psycopg2.connect(db)
-cur = conn.cursor()
 
 # Set interval and limit
 ntweets = 500
@@ -41,6 +34,10 @@ counter = 0
 def search():
     # API search query
     searchResults = tweepy.Cursor(api.search, q='sunset OR sunsets -filter:retweets', lang="en", include_entities=True)
+
+    # Database connection
+    conn = psycopg2.connect(db)
+    cur = conn.cursor()
 
     for tweet in searchResults.items(ntweets):
 
@@ -57,7 +54,7 @@ def search():
                 # When detection confidence is sufficient
                 if confidence > 60:
                     try:
-                        # Retweet
+                        # Retweet and download
                         tweet.retweet()
                         tweetimage = downloadimage(imageurl)
                         
@@ -73,7 +70,11 @@ def search():
                         # (loc, tweettime, tweettext, tweetimage))
 
                         print(loc, tweettime, tweettext)
-                        print('Tweet Retweeted')
+                        
+                        # Close database connection
+                        conn.commit()
+                        conn.close()
+
                         return True
 
                     except tweepy.TweepError as e:
@@ -132,11 +133,6 @@ def start():
     while True:
         hit = search()
         if hit == True:
-            # Close database connection
-            conn.commit()
-            cur.close()
-            conn.close()
-            
             # Confirm hit
             return True
 
