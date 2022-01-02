@@ -9,9 +9,6 @@ if __name__ == "__main__":
   app.run(environ.get('PORT'), debug=True)
 
 # Database connection
-# db = sqlite3.connect('sunsets.db', check_same_thread=False)
-# cur = db.cursor()
-
 db = environ.get("DATABASE_URL")
 conn = psycopg2.connect(db)
 cur = conn.cursor()
@@ -20,7 +17,7 @@ cur = conn.cursor()
 def index():
   if request.method == "POST":
       bot.start()
-      cur.execute("SELECT time, location, image, text FROM tweets ORDER BY time DESC;")
+      cur.execute("SELECT time, location, image, text, id FROM tweets ORDER BY time DESC;")
       tweets = cur.fetchall()
       return render_template("index.html", tweets=tweets)
   else:

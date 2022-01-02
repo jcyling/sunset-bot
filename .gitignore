@@ -4,3 +4,5 @@ credentials.py
 config.env
 .vscode/
 sunsets.db
+.env
+test.py
