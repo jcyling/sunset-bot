@@ -132,7 +132,8 @@ def uploadimage(imageurl):
     r = requests.get(imageurl, stream=True)
 
     # S3 connection
-    session = boto3.Session()
+    session = boto3.Session(aws_access_key_id=AWSID, 
+                            aws_secret_access_key=AWSSID)
     s3 = session.resource("s3")
     bucket_name = "permanent-sunset"
     filename = "%s.jpg" % hour
