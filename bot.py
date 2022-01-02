@@ -146,7 +146,7 @@ def uploadimage(imageurl):
 def start():
     while True:
         hit = search()
-        time.sleep(10)
+        time.sleep(3600)
 
 if __name__ == "__main__":
     start()
