@@ -11,7 +11,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet"> 
-        <title>Permanent Sunset</title>
+        <title>Perpetual Sunset</title>
         <script type = "text/javascript" src="/static/script.js" defer></script>
     </head>
     <body>
@@ -23,9 +23,9 @@
                         <div class="hidden">
                             <img src="{{ tweet[2] }}" alt="Picture of a sunset">
                             <div class="tweet-info">
+                                <div class="tweet-hour">{{ tweet[4] }}</div>
                                 <div class="tweet-time">{{ tweet[0] }}</div>
                                 <div class="tweet-loc">{{ tweet[1] }}</div>
-                                <div class="tweet-hour">{{ tweet[4] }}</div>
                                 <!-- <div class="tweet-text">{{ tweet[3] }}</div> -->
                             </div>
                         </div>
@@ -36,12 +36,9 @@
 
         </div>
         <div class="description">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>24 hours of sunsets from Twitter, one sunset an hour. Made with Python.</p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <a href="https://github.com/jcyling/sunset-bot">Github</a>
         </div>
         <div class="title">
             <a href="/">Perpetual Sunset</a>

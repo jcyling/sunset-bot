@@ -15,13 +15,7 @@ cur = conn.cursor()
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-  if request.method == "POST":
-      bot.start()
-      cur.execute("SELECT time, location, image, text, id FROM tweets ORDER BY time DESC;")
-      tweets = cur.fetchall()
-      return render_template("index.html", tweets=tweets)
-  else:
-      # Perform database selection
-      cur.execute("SELECT time, location, image, text FROM tweets ORDER BY time DESC;")
-      tweets = cur.fetchall()
-      return render_template("index.html", tweets=tweets)
+  # Perform database selection
+  cur.execute("SELECT time, location, image, text, id FROM tweets ORDER BY time DESC;")
+  tweets = cur.fetchall()
+  return render_template("index.html", tweets=tweets)

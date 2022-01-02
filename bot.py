@@ -4,6 +4,7 @@ import requests
 import psycopg2
 import sys
 import datetime
+import time
 from pytz import timezone
 from dotenv import load_dotenv
 from os import path, environ
@@ -144,8 +145,7 @@ def uploadimage(imageurl):
 def start():
     while True:
         hit = search()
-        if hit == True:
-            return True
+        time.sleep(10)
 
 if __name__ == "__main__":
     start()
