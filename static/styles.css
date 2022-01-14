@@ -27,7 +27,7 @@ html, body {
 }
 
 .thumbnail:hover + .hidden {
-    visibility: visible;
+    opacity: 1;
 }
 
 .hidden {
@@ -36,8 +36,9 @@ html, body {
     max-width: 100%;
     max-height: 70%;
     display: inline-block;
-    visibility: hidden;
+    opacity: 0;
     text-align: left;
+    transition: opacity 0.3s;
 }
 
 .tweet-img {
@@ -51,6 +52,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .tweet-img img {
