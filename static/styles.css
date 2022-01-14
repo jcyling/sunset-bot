@@ -6,20 +6,6 @@ html, body {
     margin: 0;
     padding: 0;
 }
-.title {
-    bottom: 0;
-    width: 100vw;
-    text-align: left;
-    position: fixed;
-    font-size: 3.5em;
-    font-weight: 900;
-    padding: 10px;
-    background: linear-gradient(transparent, black);
-}
-
-.container {
-    margin-left: 45%;
-}
 
 .img-col {
     display: flex;
@@ -37,6 +23,7 @@ html, body {
     height: 100px;
     object-fit: cover;
     flex-shrink: 0;
+    z-index: 1;
 }
 
 .thumbnail:hover + .hidden {
@@ -53,44 +40,94 @@ html, body {
     text-align: left;
 }
 
-.hidden img {
-    max-width: 80%;
+.tweet-img {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh; 
+    width: calc(100vw - 100px);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tweet-img img {
+    max-width: 80vw;
     max-height: 80vh;
-    overflow; hidden;
-    display: block;
 }
 
 .tweet-info {
-    font-size: 2em;
-    text-align: left;
+    font-size: 1em;
+    text-align: right;
     position: fixed;
-    left: 0;
+    right: 0;
     top: 0;
     font-weight: 900;
-    padding: 0.2em;
+    padding: 1%;
     width: 45%;
 }
 
 .tweet-hour {
-    font-size: 4em;
+    font-size: 3em;
 }
 
 .description {
     margin-top: 10%;
-    margin-bottom: 20%;
-    font-size: 1.2em;
-    font-weight: 900;
+    margin-bottom: 0;
     padding: 1em;
+    padding-bottom: 20vh;
+    font-size: 1.5em;
+    font-weight: 900;
     text-align: left;
-    max-width: 40vw;
 }
 
 a {
     color: white;
     text-decoration: none;
+    font-size: 0.8em;
 }
 
 a:hover {
     color: grey;
     text-decoration: none;
+}
+
+.title {
+    z-index: 2;
+    bottom: 0;
+    width: 100vw;
+    text-align: left;
+    position: fixed;
+    font-weight: 900;
+    padding: 10px;
+    background: linear-gradient(transparent, black);
+}
+
+.title a {
+    font-size: 3rem;
+}
+
+/**Breakpoints**/
+
+@media only screen and (min-width: 600px) {
+    .description {
+        max-width: 80vw;
+    }
+    .thumbnail {
+        width: 80px;
+        height: 80px;
+    }
+
+}
+
+@media only screen and (min-width: 800px) {
+    .description {
+        max-width: 40vw;
+    }
+    .thumbnail {
+        width: 100px;
+        height: 100px;
+    }
 }

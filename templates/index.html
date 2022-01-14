@@ -21,9 +21,11 @@
                     <div class="img-row">
                         <img class="thumbnail" src="{{ tweet[2] }}" alt="Picture of a sunset">
                         <div class="hidden">
-                            <img src="{{ tweet[2] }}" alt="Picture of a sunset">
+                            <div class="tweet-img">
+                                <img src="{{ tweet[2] }}" alt="Picture of a sunset">
+                            </div>
                             <div class="tweet-info">
-                                <div class="tweet-hour">{{ tweet[4] }}</div>
+                                <div class="tweet-hour">Hour {{ tweet[4] }}</div>
                                 <div class="tweet-time">{{ tweet[0] }}</div>
                                 <div class="tweet-loc">{{ tweet[1] }}</div>
                                 <!-- <div class="tweet-text">{{ tweet[3] }}</div> -->
@@ -36,8 +38,8 @@
 
         </div>
         <div class="description">
-            <p>24 hours of sunsets from Twitter, one sunset an hour. Made with Python.</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>There's a sunset on Earth at any point in time. This website shows 24 hours of sunsets from Twitter, one sunset an hour. Made with Python.</p>
+            <a href="https://twitter.com/sunsetsbot">Twitter</a>
             <a href="https://github.com/jcyling/sunset-bot">Github</a>
         </div>
         <div class="title">
