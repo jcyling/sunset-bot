@@ -12,10 +12,11 @@ if __name__ == "__main__":
 db = environ.get("DATABASE_URL")
 conn = psycopg2.connect(db)
 cur = conn.cursor()
+# Perform database selection
+cur.execute("SELECT time, location, image, text, id FROM tweets ORDER BY time DESC;")
+tweets = cur.fetchall()
+conn.close()
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-  # Perform database selection
-  cur.execute("SELECT time, location, image, text, id FROM tweets ORDER BY time DESC;")
-  tweets = cur.fetchall()
   return render_template("index.html", tweets=tweets)
