@@ -5,7 +5,6 @@ import psycopg2
 
 app = Flask(__name__)
 
-
 # Database connection
 db = environ.get("DATABASE_URL")
 conn = psycopg2.connect(db)
@@ -18,6 +17,3 @@ conn.close()
 @app.route("/", methods=["GET", "POST"])
 def index():
   return render_template("index.html", tweets=tweets)
-
-if __name__ == "__main__":
-  app.run(environ.get('PORT'), debug=True)
