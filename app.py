@@ -1,6 +1,5 @@
 from os import environ
 from flask import Flask, request, render_template
-import bot
 import psycopg2
 
 app = Flask(__name__)
