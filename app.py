@@ -1,11 +1,15 @@
-from os import environ
+import os
 from flask import Flask, request, render_template
 import psycopg2
+import bot
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
 # Database connection
-db = environ.get("DATABASE_URL")
+db = os.getenv("DATABASE_URL")
 conn = psycopg2.connect(db)
 cur = conn.cursor()
 # Perform database selection
