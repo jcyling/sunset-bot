@@ -1,48 +1,60 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, width=device-width">
-        <link href="/static/styles.css" rel="stylesheet">
-         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet"> 
-        <title>Perpetual Sunset</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="img-col">
-                {% for tweet in tweets %}
-                    <div class="img-row">
-                        <img class="thumbnail" src="{{ tweet[2] }}" alt="Picture of a sunset">
-                        <div class="hidden">
-                            <div class="tweet-img">
-                                <img src="{{ tweet[2] }}" alt="Picture of a sunset">
-                            </div>
-                            <div class="tweet-info">
-                                <div class="tweet-hour">Hour {{ tweet[4] }}</div>
-                                <div class="tweet-time">{{ tweet[0] }}</div>
-                                <div class="tweet-loc">{{ tweet[1] }}</div>
-                                <!-- <div class="tweet-text">{{ tweet[3] }}</div> -->
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link href="/static/styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Perpetual Sunset</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="img-col">
+        {% for tweet in tweets %}
+        <div class="img-row">
+          <img
+            class="thumbnail"
+            src="{{ tweet[2] }}"
+            alt="Picture of a sunset"
+          />
+          <div class="hidden">
+            <div class="tweet-img">
+              <img src="{{ tweet[2] }}" alt="Picture of a sunset" />
             </div>
-
+            <div class="tweet-info">
+              <div class="tweet-hour">Hour {{ tweet[4] }}</div>
+              <div class="tweet-time">{{ tweet[0] }}</div>
+              <div class="tweet-loc">{{ tweet[1] }}</div>
+              <!-- <div class="tweet-text">{{ tweet[3] }}</div> -->
+            </div>
+          </div>
         </div>
-        <div class="description">
-            <p>There's a sunset on Earth at any point in time. This website shows 24 hours of sunsets from Twitter, one sunset an hour. Made with Python.</p>
-            <p>All original tweets and images can be found <a href="https://twitter.com/sunsetsbot">@sunsetbot.</a></p>
-            <a href="https://github.com/jcyling/sunset-bot">Github</a>
-        </div>
-        <div class="title">
-            <a href="/">Perpetual Sunset</a>
-        </div>
-    </body>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="description">
+      <p>
+        There's a sunset on Earth at any point in time. This website shows 24
+        hours of sunsets from Twitter, one sunset an hour. Made with Python.
+      </p>
+      <p>
+        This bot is now archived due to twitter API changes. All original tweets
+        and images can be found
+        <a href="https://twitter.com/sunsetsbot">@sunsetbot.</a>
+      </p>
+      <div class="badge">Offline</div>
+      <a href="https://github.com/jcyling/sunset-bot">Github</a>
+    </div>
+    <div class="title">
+      <a href="/">Perpetual Sunset</a>
+    </div>
+  </body>
 </html>

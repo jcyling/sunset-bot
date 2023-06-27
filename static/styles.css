@@ -1,137 +1,147 @@
-html, body {
-    text-align: center;
-    font-family: 'Work Sans', sans-serif;
-    color: white;
-    background-color: black;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  text-align: center;
+  font-family: "Work Sans", sans-serif;
+  color: white;
+  background-color: black;
+  margin: 0;
+  padding: 0;
 }
 
 .img-col {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .img-row {
-    display: flex;
-    align-items: flex-start;
-    padding: 0;
+  display: flex;
+  align-items: flex-start;
+  padding: 0;
 }
 
 .thumbnail {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    flex-shrink: 0;
-    z-index: 1;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.badge {
+  background-color: gray;
+  color: black;
+  font-weight: bold;
+  border-radius: 1.5rem;
+  width: min-content;
+  padding: 0.2rem 1rem;
+  margin-bottom: 1rem;
 }
 
 .thumbnail:hover + .hidden {
-    opacity: 1;
+  opacity: 1;
 }
 
 .hidden {
-    position: absolute;
-    margin-left: 100px;
-    max-width: 100%;
-    max-height: 70%;
-    display: inline-block;
-    opacity: 0;
-    text-align: left;
-    transition: opacity 0.3s;
+  position: absolute;
+  margin-left: 100px;
+  max-width: 100%;
+  max-height: 70%;
+  display: inline-block;
+  opacity: 0;
+  text-align: left;
+  transition: opacity 0.3s;
 }
 
 .tweet-img {
-    z-index: 0;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh; 
-    width: calc(100vw - 100px);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: calc(100vw - 100px);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .tweet-img img {
-    max-width: 80vw;
-    max-height: 80vh;
+  max-width: 80vw;
+  max-height: 80vh;
 }
 
 .tweet-info {
-    font-size: 1em;
-    text-align: right;
-    position: fixed;
-    right: 0;
-    top: 0;
-    font-weight: 900;
-    padding: 1%;
-    width: 45%;
+  font-size: 1em;
+  text-align: right;
+  position: fixed;
+  right: 0;
+  top: 0;
+  font-weight: 900;
+  padding: 1%;
+  width: 45%;
 }
 
 .tweet-hour {
-    font-size: 3em;
+  font-size: 3em;
 }
 
 .description {
-    margin-top: 10%;
-    margin-bottom: 0;
-    padding: 1em;
-    padding-bottom: 20vh;
-    font-size: 1.5em;
-    font-weight: 900;
-    text-align: left;
-    position: relative;
+  margin-top: 10%;
+  margin-bottom: 0;
+  padding: 1em;
+  padding-bottom: 20vh;
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: left;
+  position: relative;
 }
 
 a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.8em;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8em;
 }
 
 a:hover {
-    color: grey;
-    text-decoration: none;
+  color: grey;
+  text-decoration: none;
 }
 
 .title {
-    z-index: 2;
-    bottom: 0;
-    width: 100vw;
-    text-align: left;
-    position: fixed;
-    font-weight: 900;
-    padding: 10px;
-    background: linear-gradient(transparent, black);
+  z-index: 2;
+  bottom: 0;
+  width: 100vw;
+  text-align: left;
+  position: fixed;
+  font-weight: 900;
+  padding: 10px;
+  background: linear-gradient(transparent, black);
 }
 
 .title a {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 /**Breakpoints**/
 
 @media only screen and (min-width: 600px) {
-    .description {
-        max-width: 80vw;
-    }
-    .thumbnail {
-        width: 80px;
-        height: 80px;
-    }
-
+  .description {
+    max-width: 80vw;
+  }
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 @media only screen and (min-width: 800px) {
-    .description {
-        max-width: 40vw;
-    }
-    .thumbnail {
-        width: 100px;
-        height: 100px;
-    }
+  .description {
+    max-width: 40vw;
+  }
+  .thumbnail {
+    width: 100px;
+    height: 100px;
+  }
 }
