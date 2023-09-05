@@ -4,10 +4,6 @@ This bot looks for images of sunsets posted in Twitter and retweets them, every 
 
 ![Perpetual Sunset](/static/images/00-perpetualSunset.png)
 
-### Video
-
-https://youtu.be/W0o_OXk5hXk
-
 ## What Is It?
 
 Perpetual Sunset is a single-page web app that displays photos of sunsets by Twitter users. Tweepy is used to search for tweets with the keyword `sunset`. Each tweet image is passed to AWS image recognition service to evaluate the contents of the image. If the confidence level of the image containing a sunset is above 60%, the bot retweets the tweet. As well as recognizing sunsets, the bot is also configured to discard images with unwanted content (such as "person"). Valid images retweeted, saved in a S3 bucket, and displayed on the web app, as well as their tweet time and user location. The site is responsively designed. All hours are based in GMT+0.
